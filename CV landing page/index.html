@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduardo Castillo | QA Automation Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00d2ff;
+            --secondary: #0284c7;
+            --bg-dark: #121826;
+            --card-bg: #1e293b;
+            --text-light: #ffffff;
+            --text-gray: #a1a1aa;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- BARRA SOCIAL --- */
+        .social-sidebar {
+            position: fixed;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            z-index: 100;
+        }
+        .social-icon img { width: 30px; filter: invert(1); opacity: 0.7; transition: 0.3s; }
+        .social-icon:hover img { opacity: 1; filter: invert(1) sepia(1) saturate(5) hue-rotate(170deg); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 0;
+        }
+        .profile-picture-container { display: flex; justify-content: center; margin-bottom: 2rem; }
+        .profile-picture {
+            width: 220px; height: 220px;
+            border-radius: 20%;
+            object-fit: cover;
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.3);
+        }
+        h1 { font-size: 3.5rem; font-weight: 800; margin: 0; line-height: 1.1; }
+        .name-highlight { color: var(--primary); }
+        .role { font-size: 2.2rem; font-weight: 700; color: var(--text-light); margin: 0.5rem 0 1.5rem 0; }
+        
+        .main-description {
+            font-size: 1.1rem; color: var(--text-gray);
+            background: rgba(30, 41, 59, 0.4);
+            padding: 2.5rem; border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 2.5rem;
+        }
+
+        .buttons { display: flex; gap: 1rem; }
+        .btn { padding: 0.8rem 2.5rem; border-radius: 8px; font-weight: 700; text-decoration: none; transition: 0.3s; }
+        .btn-primary { background: linear-gradient(90deg, var(--secondary), var(--primary)); color: white; }
+        .btn-outline { border: 2px solid #334155; color: white; }
+        .btn:hover { transform: scale(1.05); }
+
+        /* --- SECCIÓN PROYECTOS (ESTILO ALTERNADO) --- */
+        .section-title { font-size: 2.2rem; font-weight: 800; color: var(--primary); margin: 4rem 0 3rem 0; text-transform: uppercase; }
+
+        .project-card {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 6rem;
+            background: rgba(30, 41, 59, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-card:nth-child(even) { flex-direction: row-reverse; }
+
+        .project-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+        }
+
+        .project-image img { width: 100%; display: block; filter: grayscale(20%); transition: 0.5s; }
+        .project-card:hover .project-image img { filter: grayscale(0%); transform: scale(1.03); }
+
+        .project-info { flex: 1; }
+        .project-number { font-size: 0.9rem; font-weight: 700; color: var(--primary); letter-spacing: 2px; }
+        .project-title { font-size: 1.8rem; font-weight: 800; margin: 0.5rem 0; }
+        .project-tags { font-size: 0.85rem; font-weight: 600; color: var(--secondary); margin-bottom: 1rem; text-transform: uppercase; }
+        .project-desc { color: var(--text-gray); font-size: 1rem; margin-bottom: 1.5rem; }
+        .tool-badge { display: inline-block; background: #0f172a; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.75rem; font-weight: 700; color: var(--primary); border: 1px solid var(--primary); }
+
+        /* --- HABILIDADES --- */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; padding-bottom: 5rem; }
+        .skill-item { background: var(--card-bg); padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 0.85rem; border: 1px solid transparent; transition: 0.3s; }
+        .skill-item:hover { border-color: var(--primary); transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 4rem 0; color: var(--text-gray); font-size: 0.85rem; border-top: 1px solid #262f40; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .project-card, .project-card:nth-child(even) { flex-direction: column; text-align: center; }
+            .social-sidebar { position: static; flex-direction: row; justify-content: center; transform: none; margin: 2rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="social-sidebar">
+            <a href="https://github.com/KeresMorphy" target="_blank" class="social-icon"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub"></a>
+            <a href="#" class="social-icon"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></a>
+        </div>
+
+        <section class="hero">
+            <div class="profile-picture-container">
+                <img src="yo cv.jpg" alt="Eduardo Castillo" class="profile-picture">
+            </div>
+            <h1>Soy <span class="name-highlight">Eduardo Castillo</span>.</h1>
+            <p class="role">QA Automation Engineer</p>
+            <div class="main-description">
+                Egresado en <strong>TICs</strong> con un enfoque analítico forjado en más de dos años de experiencia como <strong>Desarrollador Full-Stack</strong>. Tras especializarme en QA en <strong>TripleTen</strong>, me dedico a elevar la calidad del software mediante la detección temprana de fallos y la creación de procesos de automatización robustos.
+            </div>
+            <div class="buttons">
+                <a href="mailto:keresmorphy@gmail.com" class="btn btn-primary">CONTACTO</a>
+                <a href="/(S1.L2).pdf" class="btn btn-outline">CV</a>
+            </div>
+        </section>
+
+        <h2 class="section-title">Proyectos Destacados</h2>
+
+        <div class="project-card">
+            <div class="project-image">
+                <img src="/urban inicio.png" alt="Proyecto Regresión Jira">
+            </div>
+            <div class="project-info">
+                <p class="project-number">PROYECTO #1</p>
+                <h3 class="project-title">Suite de Regresión y Humo</h3>
+                <p class="project-tags">Manual Testing • Jira • Gestión de Defectos</p>
+                <p class="project-desc">
+                    lleve la fase de pruebas de regresión para una plataforma crítica, logrando identificar y reportar <strong>39 errores de alto impacto</strong>. Implementé una estrategia de pruebas de humo para garantizar la estabilidad de las funcionalidades base en cada despliegue.
+                </p>
+                <span class="tool-badge">JIRA</span> <span class="tool-badge">EXCEL (UTF-8)</span> <span class="tool-badge">POSTMAN</span><span class="tool-badge">SELENIUM</span><span class="tool-badge">PYTHON</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">
+                <img src="/api.jpg" alt="API Testing Postman">
+            </div>
+            <div class="project-info">
+                <p class="project-number">PROYECTO #2</p>
+                <h3 class="project-title">Validación de Microservicios</h3>
+                <p class="project-tags">API Testing • Backend • Automatización</p>
+                <p class="project-desc">
+                    Diseñé colecciones automatizadas para validar la lógica de negocio en servicios de Kits y Costos. Aseguré la integridad de los datos mediante pruebas de contrato y validación de endpoints, optimizando la comunicación entre servicios de backend.
+                </p>
+                <span class="tool-badge">POSTMAN</span> <span class="tool-badge">JAVASCRIPT</span> <span class="tool-badge">JSON</span> <span class="tool-badge">JYRA</span>
+            </div>
+        </div>
+
+<div class="project-card">
+    <div class="project-image">
+        <img src="/project-2-urban-routes.png" alt="Web Testing Functional">
+    </div>
+    <div class="project-info">
+        <p class="project-label">Proyecto #3</p>
+        <h3 class="project-title">Testing Funcional y UX</h3>
+        <p class="project-tags">Web Testing • Compatibilidad • UI/UX</p>
+        <p class="project-desc">
+            Realicé la validación de interfaz y compatibilidad en navegadores Chrome y Firefox. Me enfoqué en asegurar que la experiencia del usuario fuera fluida, verificando que el diseño cumpliera estrictamente con los requisitos funcionales.
+        </p>
+        <span class="tool-badge">CHROME</span> <span class="tool-badge">FIREFOX</span> <span class="tool-badge">CASOS DE PRUEBA</span> <span class="tool-badge">JIRA</span> <span class="tool-badge">POSTMAN</span>
+    </div>
+</div>
+
+        <div class="project-card">
+            <div class="project-image">
+                <img src="/project-4-urban-lunch.jpg" alt="Urban Lunch Mobile Testing">
+            </div>
+            <div class="project-info">
+                <p class="project-label">Proyecto #4</p>
+                <h3 class="project-title">Urban Lunch: Mobile Testing</h3>
+                <p class="project-tags">Mobile • Backend • API</p>
+                <p class="project-desc">
+                    Evaluación de la aplicación móvil para el servicio de entrega. Verifiqué los requisitos del backend, diseñé listas de comprobación para la funcionalidad de "Agregar comestibles" y validé los costos de envío mediante pruebas de API en Postman.
+                </p>
+                <span class="tool-badge">POSTMAN</span> <span class="tool-badge">JIRA</span> <span class="tool-badge">MOBILE QA</span>
+            </div>
+        </div>
+
+        <h2 class="section-title">Habilidades</h2>
+        <div class="skills-grid">
+            <div class="skill-item">HTML / CSS</div> <div class="skill-item">JavaScript</div>
+            <div class="skill-item">Python</div> <div class="skill-item">Pytest</div>
+            <div class="skill-item">Java / Spring</div> <div class="skill-item">PostgreSQL</div>
+            <div class="skill-item">JIRA</div> <div class="skill-item">Postman</div>
+            <div class="skill-item">Selenium</div> <div class="skill-item">Git / GitHub</div>
+            <div class="skill-item">Figma</div> <div class="skill-item">Android Studio</div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Eduardo Castillo | Pénjamo, Guanajuato, México</p>
+        </footer>
+    </div>
+
+</body>
+</html>
